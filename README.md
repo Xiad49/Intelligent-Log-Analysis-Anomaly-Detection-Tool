@@ -126,7 +126,7 @@ Executable will be generated after successful compilation.
 Example usage:
 
 ``` bash
-./logtool.exe data-set/sample_big_log_6MB.log
+.\logtool.exe --graphs -o output "LOCATION\FILE_NAME"
 ```
 
 Output files will be stored inside the `output/` directory.
@@ -177,5 +177,4 @@ This project is developed for research and educational purposes.
 
 ## 👨‍💻 Author
 
-Intelligent Log Analysis & Anomaly Detection Project\
-Built using modern C++ architecture principles.
+SORWAR MD ZIAD BIN
