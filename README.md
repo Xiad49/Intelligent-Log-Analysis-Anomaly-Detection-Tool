@@ -1,113 +1,181 @@
-
 # Intelligent Log Analysis & Anomaly Detection Tool
 
-## Overview
+A high-performance C++ based log analysis and anomaly detection system
+designed to process large-scale log files efficiently.\
+This project focuses on structured parsing, statistical analysis,
+rule-based detection, and visualization-ready output generation.
 
-The **Intelligent Log Analysis & Anomaly Detection Tool** is designed to assist in efficiently analyzing large-scale log data, identifying anomalies, and providing insights for improving system performance and reliability. This tool is implemented in C++ for high-performance log processing, providing real-time anomaly detection capabilities with support for statistical methods and machine learning algorithms.
+------------------------------------------------------------------------
 
-## Table of Contents
+## 🚀 Project Overview
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+This system analyzes large log datasets (2MB--7MB+) and detects abnormal
+behavior using:
 
-## Introduction
+-   Statistical anomaly detection
+-   Rule-based detection
+-   Spike detection
+-   Burst pattern detection
+-   IP frequency anomaly detection
+-   Time-window based analysis
+-   Z-score based statistical monitoring
+-   Isolation Forest based anomaly scoring (visualized output)
 
-### Problem Statement
+The tool is designed for extensibility, modularity, and performance
+using modern C++ and CMake.
 
-In today's distributed systems, log files are generated in massive quantities, containing invaluable information for performance monitoring, troubleshooting, and security analysis. Manual inspection of these logs is inefficient and error-prone, making it essential to automate the process. The **Intelligent Log Analysis & Anomaly Detection Tool** addresses this challenge by providing an automated solution for detecting anomalies in system logs.
+------------------------------------------------------------------------
 
-### Key Features
+## 📂 Project Structure
 
-- **Log Processing**: Handles large-scale logs (GB-level) in real-time.
-- **Anomaly Detection**: Uses statistical methods and machine learning for identifying abnormal events.
-- **High Performance**: Built using C++ for fast execution, suitable for high-velocity log data.
-- **Offline Analysis**: Processes logs offline for historical data inspection.
-- **Customizable**: Easily configurable for different types of logs and use cases.
+    include/        → Header files (modular architecture)
+    src/            → Source files (core implementation)
+    data-set/       → Sample test log files
+    output/         → Generated reports and visualizations
+    .vscode/        → Debug and build configuration
+    CMakeLists.txt  → CMake build configuration
 
-## Installation
+------------------------------------------------------------------------
 
-To install the tool, follow these steps:
+## 🧠 Core Modules
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Xiad49/Intelligent-Log-Analysis-Anomaly-Detection-Tool.git
-   cd Intelligent-Log-Analysis-Anomaly-Detection-Tool
-   ```
+### 1️⃣ Input Processing
 
-2. Install necessary dependencies:
-   For Linux/Mac:
-   ```bash
-   sudo apt-get install build-essential
-   ```
-   For Windows, make sure you have Visual Studio with C++ support installed.
+-   FileReader
+-   LogParser
 
-3. Build the project:
-   ```bash
-   make
-   ```
+### 2️⃣ Core Engine
 
-4. Run the tool:
-   ```bash
-   ./log_analysis_tool
-   ```
+-   LogEntry
+-   Anomaly
+-   Core Engine
+-   Report abstraction
 
-## Usage
+### 3️⃣ Analysis Modules
 
-### Input Format
+-   FrequencyAnalyzer
+-   PatternAnalyzer
+-   TimeWindowAnalyzer
 
-The tool accepts log files in plain text format. Each log entry should follow a consistent structure, with timestamps and log levels clearly defined. Example:
+### 4️⃣ Anomaly Detection Modules
 
+-   StatisticalDetector
+-   SpikeDetector
+-   BurstPatternDetector
+-   IpFrequencyDetector
+-   RuleBasedDetector
+
+### 5️⃣ Reporting System
+
+-   ConsoleReporter
+-   CsvReporter
+-   JsonReporter
+-   ReportGenerator
+
+### 6️⃣ Utilities
+
+-   Logger
+-   ConfigLoader
+-   TimeUtils
+-   StringUtils
+
+------------------------------------------------------------------------
+
+## 📊 Output & Visualization
+
+The system generates:
+
+-   CSV summaries
+-   Time-series data
+-   Log-level distributions
+-   Error trends
+-   Z-score trends
+-   Service correlation matrices
+-   Heatmaps
+-   Isolation Forest anomaly scores
+-   Auto-generated graph dashboards (PNG + HTML)
+
+Generated graphs are saved inside:
+
+    output/graphs_TIMESTAMP/
+
+------------------------------------------------------------------------
+
+## 🛠 Build Instructions
+
+### 🔧 Requirements
+
+-   C++17 compatible compiler
+-   CMake 3.15+
+
+### 🔨 Build Steps
+
+``` bash
+mkdir build
+cd build
+cmake ..
+make
 ```
-[2026-02-14 10:30:45] INFO - System started successfully.
-[2026-02-14 10:31:10] ERROR - Database connection failed.
+
+Executable will be generated after successful compilation.
+
+------------------------------------------------------------------------
+
+## ▶️ Running the Tool
+
+Example usage:
+
+``` bash
+./logtool.exe data-set/sample_big_log_6MB.log
 ```
 
-### Running the Tool
+Output files will be stored inside the `output/` directory.
 
-To run the tool with your log file:
-```bash
-./log_analysis_tool --input /path/to/logfile.log
-```
+------------------------------------------------------------------------
 
-### Command-Line Arguments
+## 🧪 Included Test Datasets
 
-- `--input <file>`: Path to the log file.
-- `--output <file>`: Path to save the analysis report.
-- `--verbose`: Enable detailed logging during execution.
+-   sample_big_log_6MB.log
+-   security_attack_log_4MB.log
+-   corrupted_malformed_log_4MB.log
+-   mixed_format_log_2\_3MB.log
 
-### Example Output
+These datasets allow benchmarking across: - Normal traffic - Security
+attack simulations - Corrupted logs - Mixed-format logs
 
-Upon successful execution, the tool will generate an output report containing information on detected anomalies, including the timestamp, log level, and a brief description.
+------------------------------------------------------------------------
 
-```
-Anomaly Detected:
-Timestamp: 2026-02-14 10:31:10
-Log Level: ERROR
-Message: Database connection failed.
-Severity: High
-```
+## 📈 Key Features
 
-## Contributing
+-   Modular C++ architecture
+-   Large log file support
+-   Memory-efficient parsing
+-   Time-based aggregation
+-   Statistical anomaly detection
+-   ML-integrated anomaly visualization
+-   CSV & JSON export
+-   Automated graph generation
+-   Easily extendable detector framework
 
-We welcome contributions to improve this project! To contribute:
+------------------------------------------------------------------------
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-xyz`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add new feature'`).
-5. Push to the branch (`git push origin feature-xyz`).
-6. Create a new Pull Request.
+## 🔮 Future Improvements
 
-## License
+-   Real-time streaming support
+-   Distributed processing
+-   Deep learning based anomaly detection
+-   Web dashboard integration
+-   REST API support
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+------------------------------------------------------------------------
 
-## Acknowledgements
+## 📄 License
 
-- C++ for its performance and efficiency.
-- Various machine learning algorithms and statistical methods for anomaly detection.
+This project is developed for research and educational purposes.
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+Intelligent Log Analysis & Anomaly Detection Project\
+Built using modern C++ architecture principles.
