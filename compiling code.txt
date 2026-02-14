@@ -1,0 +1,129 @@
+To find anything similar:
+gci C:\Project -Recurse -Include *parser*.cpp,*.cc,*.cxx
+
+g++ -std=c++17 -I C:\Project\include -c StringUtils.cpp -o StringUtils.o
+compiling StringUtils
+
+
+compiling TimeUtils
+g++ -std=c++17 -I C:\Project\include -c TimeUtils.cpp -o TimeUtils.o
+
+
+Compile ConfigLoader.cpp
+g++ -std=c++17 -I C:\Project\include -c ConfigLoader.cpp -o ConfigLoader.o
+
+
+
+compiling FileReader.cpp
+g++ -std=c++17 -I C:\Project\src\input -I C:\Project\include -c C:\Project\src\input\FileReader.cpp -o C:\Project\src\input\FileReader.o
+
+
+LogParser.cpp
+g++ -std=c++17 -I C:\Project\include -c C:\Project\src\input\LogParser.cpp -o C:\Project\src\input\LogParser.o
+
+
+Frequency analyzer cpp
+cd C:\Project
+mkdir build -Force
+
+g++ -std=c++17 -O2 -Wall -Wextra `
+  -I .\include `
+  -c .\src\analysis\FrequencyAnalyzer.cpp `
+  -o .\build\FrequencyAnalyzer.o
+
+
+TimeWindowAnalyzer.cpp
+cd C:\Project
+mkdir build -Force
+
+g++ -std=c++17 -O2 -Wall -Wextra `
+  -I .\include `
+  -c .\src\analysis\TimeWindowAnalyzer.cpp `
+  -o .\build\TimeWindowAnalyzer.o
+
+
+PatternAnalyzer.cpp
+cd C:\Project
+mkdir build -Force
+
+g++ -std=c++17 -O2 -Wall -Wextra `
+  -I .\include `
+  -c .\src\analysis\PatternAnalyzer.cpp `
+  -o .\build\PatternAnalyzer.o
+
+
+RuleBasedDetector.cpp
+g++ -std=c++17 -Iinclude -Isrc src/anomaly/RuleBasedDetector.cpp -c
+
+
+StatisticalDetector.cpp
+g++ -std=c++17 -Iinclude -Isrc src/anomaly/StatisticalDetector.cpp -c
+
+
+SpikeDetector.cpp
+g++ -std=c++17 -Iinclude -Isrc src/anomaly/SpikeDetector.cpp -c
+
+
+StringUtils
+g++ -std=c++17 -Iinclude -Isrc src/utils/StringUtils.cpp -c
+
+
+ConsoleReporter.cpp
+g++ -std=c++17 -Iinclude -Isrc src/report/ConsoleReporter.cpp -c
+
+
+ReportGenerator.cpp
+g++ -std=c++17 -Iinclude -Isrc src/report/ReportGenerator.cpp -c
+
+
+JsonReporter.cpp
+g++ -std=c++17 -Iinclude -Isrc src/report/JsonReporter.cpp -c
+
+
+CsvReporter.cpp
+g++ -std=c++17 -Iinclude -Isrc src/report/CsvReporter.cpp -c
+
+
+Main.cpp
+g++ -std=c++17 -Iinclude `
+  src/main.cpp `
+  src/input/*.cpp `
+  src/analysis/*.cpp `
+  src/anomaly/*.cpp `
+  src/report/*.cpp `
+  src/utils/*.cpp `
+  -o logtool.exe
+
+
+
+Run a file to taste-
+.\logtool.exe -v Check\corrupted_malformed_log_4MB.log
+
+mixed_format_log_2_3MB.log
+sample_big_log_6MB.log
+security_attack_log_4MB.log
+mixed_anomalous_log_40MB.log
+
+
+.\logtool.exe -v data-set\mixed_format_log_2_3MB.log
+
+
+compile any file-
+
+
+all in one-
+.\logtool.exe --graphs -o output "C:\Project\check\sample_big_log_6MB.log"
+
+or,
+
+.\logtool.exe --graphs -o output "C:\Users\ziadb\Desktop\Intelligent Log Analysis & Anomaly Detection Tool (C++)\Project_fixed_pro_upgrades_timeaxis\data-set\mixed_anomalous_log_40MB.log"
+
+
+.\logtool.exe --graphs -o output "C:\Users\ziadb\Desktop\Intelligent Log Analysis & Anomaly Detection Tool (C++)\Project_fixed_pro_upgrades_timeaxis\data-set\mixed_format_log_2_3MB.log"
+
+
+
+
+
+
+
